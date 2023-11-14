@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-mape
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: main-mape
+  template:
+    metadata:
+      labels:
+        app: main-mape
+    spec:
+      containers:
+      - name: main-mape
+        image: main-mape:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+
